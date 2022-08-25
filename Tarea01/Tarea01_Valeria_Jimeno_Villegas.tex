@@ -1,0 +1,169 @@
+\documentclass[12pt, oneside]{article}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[parfill]{parskip}
+% \usepackage{graphicx}		
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{enumerate}
+% \usepackage{tikz}
+\usepackage[table]{xcolor} 
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{float}
+\restylefloat{figure}
+
+\usepackage{minted}
+% pdflatex -shell-escape Tarea01_Valeria_Jimeno_Villegas.tex
+
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+\def\secondcircle{(210:1.75cm) circle (2.5cm)}
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+
+\title{Programación Avanzada \\[5pt] \normalsize Tarea 01: Paradigmas de Programación, Funcional y Lógico \\[5pt] 2023-1}
+\author{Valeria Jimeno Villegas - \texttt{vjimenov@ciencias.unam.mx}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Para poder establecer un contacto entre dos entes, es necesario establecer un canal de comunicación entre estos. 
+Entre personas, el lenguaje funge como la principal herramienta para poder lograr ese contacto. Podemos definir al lenguaje como la capacidad que permite al ser humano expresar pensamientos y sentimientos por medio de las palabras. No obstante se tuvo la necesidad de establecer un contacto con otro ente que no fuese una persona, si no una computadora. Como resultado a este problema se crearon los lenguajes de programación, los cuales nos permiten, como programadores, comunicarnos con las computadoras.
+
+Los lenguajes de programación son los mecanismos que nos permite a nosotros, como programadores, comunicarnos con la computadora por medio de ideas algorítmicas que corresponden a especificaciones de cómputos que la máquina debe llevar a cabo\cite{javo_notas}.
+
+Actualmente existen muchos lenguajes de programación que comparten características en común, lo que ha promovido su clasificación en diferentes categorías, una de estas es por su {\bf paradigma}.
+
+El paradigma es el estilo en el que el lenguaje define la forma en la que se va a solucionar el problema dado. Este se divide en imperativo y declarativo. El paradigma imperativo se centra en dar una sucesión instrucciones de {\bf cómo} se va a resolver un problema. Por otro lado, con el paradigma declarativo no es necesario definir un algoritmo, sino describir las propiedades del resultado al que se desea llegar, es decir a {\bf qué} se desea llegar.\\
+
+En este trabajo nos centraremos en dos vertientes del paradigma declarativo, el paradigma funcional y el lógico, los cuales se verán con detalle a lo largo del documento. La clasificación del paradigma imperativo está fuera del alcance de este trabajo. Para el desarrollo del archivo se tomó como referencia: \cite{javo_notas}, \cite{favio_notas}, 
+
+
+\section*{Paradigma Funcional}
+
+En este paradigma, se especifica el problema a resolver por medio de programas definidos como una colección de funciones matemáticas. Si se requiere un comportamiento más complejo, se combinan funciones usando la composición de estas. 
+
+\subsection*{Características}
+
+\begin{itemize}
+	\item Un programa es declarativo, es decir que no va a importar cómo se llega, sino qué es a lo que se quiere llegar.
+	\item En estos lenguajes no se tiene un manejo explícito de la memoria, los cómputos están expresados por aplicación y composición de funciones, en donde los valores intermedios son pasados directamente a otras funciones.
+	\item La recursión es la herramienta de control principal\cite{favio_notas}.
+	\item Al no tener estado y memoria, las estructuras de datos son persistentes.
+\end{itemize} 
+
+Como ejemplos de lenguajes puramente funcionales se tienen a: Haskell, Miranda, Gofer, etcetera. También existen lenguajes funcionales impuros como lo son: Lisp, Scheme, Racket, ML entre otros. 
+Una vez dicho lo anterior, se muestra el Algoritmo de ordenamiento {\tt Quick Sort} en el lenguaje de programación puramente funcional Haskell\cite{javo_notas}.
+
+\begin{figure}[H]
+\begin{minted}[bgcolor=LightGray]{haskell}
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) = quicksort less ++ x:(quicksort more)
+where less = filter (<x) xs
+	more = filter (>=x) xs
+\end{minted}
+\caption{Algoritmo de ordenamiento {\tt Quicksort} en el lenguaje Haskell.}
+\label{}
+\end{figure}
+
+A continuación se muestra una tabla con las posibles ventajas y desventajas que se le encuentran al paradigma funcional.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{| l | l |}
+		\hline
+		\rowcolor{lightgray}
+		\multicolumn{1}{|c|}{{\bf Ventajas}} & \multicolumn{1}{|c|}{{\bf Desventajas}} \\
+		\hline
+		Cálculos representables algebraicamente& Difícil de escalar \\
+		\hline
+		Algoritmos demostrablemente correctos & Tipo de seguridad a menudo falta \\
+		\hline
+		Representaciones teóricas & Limitado a abstracciones matemáticas \\
+		\hline
+		Procesos sin estado &  \\ \hline
+	\end{tabular}
+\renewcommand{\arraystretch}{1}
+\end{table}
+
+
+\section*{Paradigma Lógico}
+
+A partir de un problema, dentro del paradigma lógico, se especifican características esenciales que debe de cumplir la solución de este mediante declaraciones lógicas. Es decir se parte de la solución del problema y de ahí se lleva a cabo un proceso de {\it backtracking} con el cual el lenguaje encuentra la solución que cumple con las reglas o características definidas inicialmente haciendo una búsqueda de pruebas.
+Análogo al paradigma de programación funcional, en el lógico no es posible la manipulación explícita de la memoria\cite{javo_notas}.
+
+\subsection*{Características}
+
+\begin{itemize}
+	\item Un programa es declarativo, no importa el cómo sino el qué.
+	\item La orientación es a pruebas formales\cite{favio_notas}.
+	\item El control basado en recursión.
+	\item No hay memoria implícita.
+	\item Un cómputo se expresa mediante la búsqueda de pruebas o por definición de predicados recursivos.
+\end{itemize} 
+
+Como ejemplos de lenguajes puramente lógicos se tienen a: Prolog, Datalog, entre otros, en donde los predicados lógicos se escriben en forma de cláusulas:
+
+\[
+	{\tt H :- B_{1}, \dots, B_{n}},
+\]
+\noindent y se leen en forma de implicaciones lógicas:
+\[
+	{\tt H \texttt{ if } B_{1} \texttt{ and } \dots \texttt{ and } B_{n}},
+\]
+
+en donde {\tt H} es un hecho y $\mathtt{B_{1},\dots,B_{n}}$ son las reglas que componen un campo de conocimiento definido como {\tt C}.
+
+Análogo al paradigma funcional, se muestra a continuación el algoritmo de ordenamiento {\it Quicksort} en el lenguaje de programación {\it Prolog}\cite{javo_notas}.
+
+\begin{figure}[H]
+\begin{minted}[bgcolor=LightGray]{prolog}
+quicksort([X|Xs],Ys) :-
+	partition(Xs,X,Left,Right),
+	quicksort(Left,Ls),
+	quicksort(Right,Rs),
+	append(Ls,[X|Rs],Ys).
+quicksort([],[]).
+\end{minted}
+\caption{Algoritmo de ordenamiento {\tt Quicksort} en el lenguaje Prolog.}
+\label{}
+\end{figure}
+
+A continuación se muestra una tabla con las posibles ventajas y desventajas que se le encuentran al paradigma lógico.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{| p{7cm} | p{7cm}|}
+		\hline
+		\rowcolor{lightgray}
+		\multicolumn{1}{|c|}{{\bf Ventajas}} & \multicolumn{1}{|c|}{{\bf Desventajas}} \\
+		\hline
+		Algoritmos demostrablemente correctos& Es difícil ver lo que realmente está sucediendo computacionalmente \\
+		\hline
+		Problemas basados en la lógica & Se requieren modelos no intuitivos \\
+		\hline
+		Problemas caracterizados por definiciones y/o restricciones &  \\
+		\hline
+	\end{tabular}
+\renewcommand{\arraystretch}{1}
+\end{table}
+
+\section*{Conclusión}
+
+Desde mi punto de vista el ver las ventajas y desventajas entre paradigmas no es lo más viable al momento de querer llevar a cabo un programa, creo que de primera mano es necesario conocer a fondo el problema, sus características y de igual forma definir cual es a la solución a la que se quiere llegar, para de ahí partir y saber con cual paradigma abordar el problema y ya de ahí sí tomar en cuenta las ventajas y desventajas que tienen ciertos lenguajes de programación sobre de otros. Como se mencionó en clase, cada paradigma tiene su razón de ser y esta se dio a partir de los problemas a los que se enfrentaron sus creadores, es por eso que debemos analizar detalladamente cada problema y cuál sería la mejor forma de abordarlo.
+
+Una vez dicho lo anterior, podemos concluir que los paradigmas son simplemente la manera o el estilo que toman los lenguajes para poder definir la forma en la que van a solucionar un problema. Como se mencionó anteriormente, el paradigma declarativo define características de la solución del problema, y dado que de de ahí se parte, este utiliza la recursividad como su herramienta de control principal. Por otro lado, el paradigma imperativo define una serie de instrucciones o pasos de cómo se debe llegar a la solución del problema dado. El primero parte de la solución, mientras que el otro camina hacia esta mediante una serie de pasos.
+
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+\end{document}  
+
