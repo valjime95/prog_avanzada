@@ -1,0 +1,103 @@
+\documentclass[11pt, oneside]{article}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[parfill]{parskip}
+% \usepackage{graphicx}		
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{minted}
+% \usepackage{tikz}
+\usepackage[table]{xcolor} 
+\definecolor{LightGray}{RGB}{250,250,250}
+\usepackage{tcolorbox}
+
+\newminted{python}{frame=lines,framerule=2pt}
+
+\usepackage{float}
+\restylefloat{figure}
+
+
+% \usetikzlibrary{arrows, matrix, positioning, arrows}
+
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+\def\secondcircle{(210:1.75cm) circle (2.5cm)}
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+
+\title{Programación Avanzada \\[5pt] \normalsize Tarea 03: Ejercicios arreglos y memoria \\[5pt] 2023-1 }
+\author{Valeria Jimeno Villegas - \texttt{vjimenov@ciencias.unam.mx}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{I. Arreglos}
+
+Se tiene un arreglo de enteros de 3 elementos, {\tt arregloUno}, que por {\it default} se inicializará con ceros por que no le indicamos que elementos contiene:
+
+
+\begin{figure}[H]
+\centering
+\begin{minted}[bgcolor = LightGray]{java}
+public class Arreglos {
+	public static void main(String args[]) {
+		// Creamos un primer arreglo
+		int arregloUno[] = new int[3]; }}
+\end{minted}
+\end{figure}
+
+Si ahora queremos crear un arreglo nuevo, {\tt arregloDos}, a partir del arreglo {\tt arregloUno}, es decir igualandolo:
+
+\begin{minted}[bgcolor = LightGray]{java}
+		int arregloDos[] = arregloUno;
+\end{minted}
+
+Cuando realizamos lo anterior lo que está sucediendo es {\bf no} estamos creando una copia, en realidad estamos asignando una referencia o apuntador al mismo espacio de memoria. Por lo que al hacerle cambios a {\tt arregloUno} estos cambios también se verán reflejados en {\tt arregloDos} y viceversa.
+
+\begin{minted}[bgcolor = LightGray]{java}
+		...
+		// Modificamos el arregloUno
+		arregloUno[0] = 2;
+		arregloUno[1] = 1;
+		arregloUno[2] = 0;
+
+		// Imprimimos ambos arreglos
+		System.out.println(Arrays.toString(arregloUno));
+		System.out.println(Arrays.toString(arregloDos));
+\end{minted}
+\begin{minted}[frame=single,framesep=10pt,bgcolor = white]{java}
+// Output
+[2, 1, 0] // arregloUno
+[2, 1, 0] // arregloDos
+\end{minted}
+
+
+Una vez dicho lo anterior, si queremos hacer una copia sin apuntar al mismo espacio de memoria, podemos iterar {\tt arregloUno} y crear una copia de cada uno de los elementos. Con esto garantizamos que si alguno de los dos sufre algún cambio, este no se vera reflejado en el otro arreglo, ya que cada uno está apuntado a un espacio de memoria distinto.
+
+\begin{figure}[H]
+\centering
+\begin{minted}[bgcolor = LightGray]{java}
+		...
+		// ** Creamos una copia (manual)
+		int arregloUnoCopyManual[] = new int[3];
+		for(int i = 0; i < 3; i++){
+			arregloUnoCopiaManual[i] = arregloUno[i];
+		}
+		// Modificamos el arregloUno
+		arregloUno[0] = 3;
+
+		// Imprimimos ambos arreglos
+		System.out.println(Arrays.toString(arregloUno));
+		System.out.println(Arrays.toString(arregloUnoCopyManual));
+\end{minted}
+\begin{minted}[frame=single,framesep=10pt,bgcolor = white]{java}
+// Output
+[3, 1, 0] // arregloUno
+[2, 1, 0] // arregloUnoCopyManual
+\end{minted}
+\end{figure}
+
+
+\end{document}  

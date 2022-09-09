@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{		}\PYG{p}{...}
+\PYG{+w}{		}\PYG{c+c1}{// Modificamos el arregloUno}
+\PYG{+w}{		}\PYG{n}{arregloUno}\PYG{o}{[}\PYG{l+m+mi}{0}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{arregloUno}\PYG{o}{[}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{arregloUno}\PYG{o}{[}\PYG{l+m+mi}{2}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{		}\PYG{c+c1}{// Imprimimos ambos arreglos}
+\PYG{+w}{		}\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{n}{Arrays}\PYG{p}{.}\PYG{n+na}{toString}\PYG{p}{(}\PYG{n}{arregloUno}\PYG{p}{));}
+\PYG{+w}{		}\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{n}{Arrays}\PYG{p}{.}\PYG{n+na}{toString}\PYG{p}{(}\PYG{n}{arregloDos}\PYG{p}{));}
+\end{Verbatim}
