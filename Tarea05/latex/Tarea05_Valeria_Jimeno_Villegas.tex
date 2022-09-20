@@ -1,0 +1,158 @@
+\documentclass[11pt, oneside]{article}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage[parfill]{parskip}
+% \usepackage{graphicx}		
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{minted}
+\usepackage[table]{xcolor} 
+\definecolor{LightGray}{RGB}{250,250,250}
+\usepackage{tcolorbox}
+
+\newminted{python}{frame=lines,framerule=2pt}
+
+\usepackage{float}
+\restylefloat{figure}
+
+
+% \usetikzlibrary{arrows, matrix, positioning, arrows}
+
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+\def\secondcircle{(210:1.75cm) circle (2.5cm)}
+\def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+
+\title{Tarea 05: Ejercicios \\[5pt] \normalsize Programación Avanzada  \\[5pt] 2023-1 }
+\author{Valeria Jimeno Villegas - \texttt{vjimenov@ciencias.unam.mx}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Ejercicio 5.1: Sobrecarga y Métodos Estáticos}
+
+\noindent Escribe una clase que sirva como clase de utilería que contenga los métodos necesarios para poder obtener el valor máximo de un arreglo de números. Dicho de otra forma, debemos poder hacer uso de estos métodos desde otra clase sin tener que crear una instancia de esta. Nota: Debe ser capaz de admitir cualquier tipo numérico: int, float, byte, etcétera.
+
+\begin{minted}[bgcolor = LightGray]{java}
+public class MiClaseUtil{
+
+// Se hace una sobrecarga del método Max(), el cual regresa el valor
+// máximo de un arreglo de números. La sobrecarga se lleva a cabo por que
+// se quiere poder admitir arreglos con todos los valores de tipo
+// numéricos que existen en java.  Los métodos se define como public
+// y static para que pueda ser llamado desde alguna otra clase sin tener
+// que hacer una instancia de la clase MiClaseUtil. 
+
+	public static int Max(int [] array){
+        int maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+
+	public static short Max(short [] array){
+        short maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+
+	public static byte Max(byte [] array){
+        byte maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+
+	public static long Max(long [] array){
+        long maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+
+	public static float Max(float [] array){
+        float maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+
+	public static double Max(double [] array){
+        double maximo = array[0];
+         
+        for (int i = 1; i < array.length; i++){
+            if (array[i] > maximo)
+                maximo = array[i];      
+        }
+        return maximo;
+	}
+}
+\end{minted}
+
+\section*{Ejercicio 5.2: Métodos y Variables Estáticas}
+
+\begin{itemize}
+	\item Crea las clases Inventario y Producto para que la clase Test funcione tal como se
+muestra y para que su salida sea igual a la que se observa.
+	\item La clase Inventario debe otorgarle un id consecutivo a cada instancia de la clase
+Producto al momento que estas sean creadas, esto por medio de un método.
+	\item La clase Producto no debe crear instancias de la clase Inventario.
+\end{itemize}
+
+
+\begin{minted}[bgcolor = LightGray]{java}
+public class Producto{
+
+// La clase Producto sólo tendrá un método público( definido así
+// para que se pudiera llamar desde la clase Test), el cual regresa 
+// una llamada al método estático, .ortorgarID() de la clase 
+// Inventario (ID).
+
+	public Integer getId(){
+		return Inventario.otorgarId(); 
+	}
+}
+\end{minted}
+
+\begin{minted}[bgcolor = LightGray]{java}
+public class Inventario{
+	
+// Se crea una variable de tipo entero la cual se inicializa en 
+// 100 (dado el ejercicio) siendo static para poderla mandar 
+// llamar dentro del método estático otorgarID, el cual va 
+// aumentando una unidad la variable ID a medida que se van 
+//creando más objetos.
+
+	public static Integer id = 100;
+	public static Integer otorgarId(){
+		return id++;
+	}
+}
+\end{minted}
+
+\section*{Ejercicio 5.3: Pregunta}
+
+\noindent ¿Qué modificador permite que múltiples variables de una misma instancia sean compartidas a través de todos los objetos de una clase? Explica brevemente un poco sobre este.
+
+El modificador {\tt static}, debido que al definir variables o métodos bajo este modificador estos se vuelvan independiente de los objetos de la clase, es decir que no es necesario instanciar a una clase para poder hacer uso de ellos.
+
+\end{document}  
