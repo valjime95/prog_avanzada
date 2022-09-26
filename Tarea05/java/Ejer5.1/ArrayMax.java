@@ -5,3 +5,12 @@ public class ArrayMax{
 		System.out.println(MiClaseUtil.Max(arreglo));
 	}
 }
+
+
+
+
+
+
+
+
+
