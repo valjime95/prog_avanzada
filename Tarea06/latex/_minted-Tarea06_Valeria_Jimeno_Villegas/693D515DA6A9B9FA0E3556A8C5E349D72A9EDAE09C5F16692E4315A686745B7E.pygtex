@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Isosceles}\PYG{+w}{ }\PYG{k+kd}{extends}\PYG{+w}{ }\PYG{n}{Triangulo}\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Isosceles}\PYG{p}{(}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{,}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kd}{super}\PYG{p}{(}\PYG{n}{lado1}\PYG{p}{,}\PYG{n}{lado2}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

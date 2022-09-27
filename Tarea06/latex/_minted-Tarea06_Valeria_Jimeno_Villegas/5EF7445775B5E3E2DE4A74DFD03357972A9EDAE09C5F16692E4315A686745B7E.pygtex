@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Esta clase hereda de Matriz, de modo que el método}
+\PYG{c+c1}{// constructor manda llamar al método super}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{MatrizExtendida}\PYG{+w}{ }\PYG{k+kd}{extends}\PYG{+w}{ }\PYG{n}{Matriz}\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{MatrizExtendida}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kd}{super}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// método que cambia el valor de las entradas i,j}
+\PYG{+w}{    }\PYG{c+c1}{// como el indexado de la matriz comienza en 0, entonces}
+\PYG{+w}{    }\PYG{c+c1}{// se toma en cuenta que si se quiere cambiar la entrada}
+\PYG{+w}{    }\PYG{c+c1}{// (1,1) entonces esta se refiere a la entrada (0,0), po}
+\PYG{+w}{    }\PYG{c+c1}{// lo que se le resta una unidad a cada entrada i, j.}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{sustituirElemento}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{valor}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{matrix}\PYG{o}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{][}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{o}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{valor}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

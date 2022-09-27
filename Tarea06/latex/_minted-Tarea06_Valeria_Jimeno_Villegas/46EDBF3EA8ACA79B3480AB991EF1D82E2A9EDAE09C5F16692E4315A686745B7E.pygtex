@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Para poder pedir al usuario que introduzca un input}
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{java.util.Scanner}\PYG{p}{;}
+
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{TestMatriz}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)\PYGZob{}}
+
+\PYG{+w}{        }\PYG{c+c1}{// Creamos un Scanner para pedirle al usuario el}
+\PYG{+w}{        }\PYG{c+c1}{// valor de n para introducirlo como parámetro}
+\PYG{+w}{        }\PYG{c+c1}{// al momento de llamar al método constructor}
+\PYG{+w}{        }\PYG{n}{Scanner}\PYG{+w}{ }\PYG{n}{input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Scanner}\PYG{p}{(}\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{in}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Introduce el valor de N:\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{input}\PYG{p}{.}\PYG{n+na}{nextInt}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{n}{Matriz}\PYG{+w}{ }\PYG{n}{mat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Matriz}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}nEsta es la matriz resultante: \PYGZbs{}n\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{c+c1}{// Se manda llamar al método imprimirMatriz de la}
+\PYG{+w}{        }\PYG{c+c1}{// clase Matriz}
+\PYG{+w}{        }\PYG{n}{mat}\PYG{p}{.}\PYG{n+na}{imprimirMatriz}\PYG{p}{();}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

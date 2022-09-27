@@ -1,0 +1,34 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{java.util.Scanner}\PYG{p}{;}
+
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{TestMatrizExtendida}\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{        }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{String}\PYG{o}{[]}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)\PYGZob{}}
+
+\PYG{+w}{        }\PYG{c+c1}{// Se crea un objeto Scanner y se pide al usuario}
+\PYG{+w}{        }\PYG{c+c1}{// introducir el valor de n, i,j y value(valor por}
+\PYG{+w}{        }\PYG{c+c1}{// el que se quiere cambiar la entrada i,j)}
+\PYG{+w}{        }\PYG{n}{Scanner}\PYG{+w}{ }\PYG{n}{input}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Scanner}\PYG{p}{(}\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{in}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Introduce el valor de N:\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{input}\PYG{p}{.}\PYG{n+na}{nextInt}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Introduce el valor de i:\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{input}\PYG{p}{.}\PYG{n+na}{nextInt}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Introduce el valor de j:\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{input}\PYG{p}{.}\PYG{n+na}{nextInt}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}Introduce el nuevo valor para [i][j]:\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{Integer}\PYG{+w}{ }\PYG{n}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{input}\PYG{p}{.}\PYG{n+na}{nextInt}\PYG{p}{();}
+
+\PYG{+w}{        }\PYG{c+c1}{//Una vez teniendo los inputs anteriores creamos la matriz}
+\PYG{+w}{        }\PYG{c+c1}{// y mandamos llamar al método  .sustituirElemento(i,j,value)}
+\PYG{+w}{        }\PYG{n}{MatrizExtendida}\PYG{+w}{ }\PYG{n}{mat}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{MatrizExtendida}\PYG{p}{(}\PYG{n}{n}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{mat}\PYG{p}{.}\PYG{n+na}{sustituirElemento}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{,}\PYG{n}{value}\PYG{p}{);}
+
+\PYG{+w}{        }\PYG{c+c1}{// Se imprimir la matriz con el cambio de entrada (i,j)}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{println}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}nEsta es la matriz con el cambio:  \PYGZbs{}n\PYGZdq{}}\PYG{p}{);}
+\PYG{+w}{        }\PYG{n}{mat}\PYG{p}{.}\PYG{n+na}{imprimirMatriz}\PYG{p}{();}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

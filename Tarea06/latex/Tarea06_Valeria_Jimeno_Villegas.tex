@@ -17,14 +17,14 @@
 \usepackage{float}
 \restylefloat{figure}
 
-
+% latex -shell-escape Tarea06_Valeria_Jimeno_Villegas.tex
 % \usetikzlibrary{arrows, matrix, positioning, arrows}
 
 \def\firstcircle{(90:1.75cm) circle (2.5cm)}
 \def\secondcircle{(210:1.75cm) circle (2.5cm)}
 \def\thirdcircle{(330:1.75cm) circle (2.5cm)}
 
-\title{Tarea 05: Ejercicios \\[5pt] \normalsize Programación Avanzada  \\[5pt] 2023-1 }
+\title{Tarea 06: Herencia \\[5pt] \normalsize Programación Avanzada  \\[5pt] 2023-1 }
 \author{Valeria Jimeno Villegas - \texttt{vjimenov@ciencias.unam.mx}}
 \date{\today}
 
@@ -32,127 +32,218 @@
 
 \maketitle
 
-\section*{Ejercicio 5.1: Sobrecarga y Métodos Estáticos}
-
-\noindent Escribe una clase que sirva como clase de utilería que contenga los métodos necesarios para poder obtener el valor máximo de un arreglo de números. Dicho de otra forma, debemos poder hacer uso de estos métodos desde otra clase sin tener que crear una instancia de esta. Nota: Debe ser capaz de admitir cualquier tipo numérico: int, float, byte, etcétera.
-
-\begin{minted}[bgcolor = LightGray]{java}
-public class MiClaseUtil{
-
-// Se hace una sobrecarga del método Max(), el cual regresa el valor
-// máximo de un arreglo de números. La sobrecarga se lleva a cabo por que
-// se quiere poder admitir arreglos con todos los valores de tipo
-// numéricos que existen en java.  Los métodos se define como public
-// y static para que pueda ser llamado desde alguna otra clase sin tener
-// que hacer una instancia de la clase MiClaseUtil. 
-
-	public static int Max(int [] array){
-        int maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-
-	public static short Max(short [] array){
-        short maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-
-	public static byte Max(byte [] array){
-        byte maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-
-	public static long Max(long [] array){
-        long maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-
-	public static float Max(float [] array){
-        float maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-
-	public static double Max(double [] array){
-        double maximo = array[0];
-         
-        for (int i = 1; i < array.length; i++){
-            if (array[i] > maximo)
-                maximo = array[i];      
-        }
-        return maximo;
-	}
-}
-\end{minted}
-
-\section*{Ejercicio 5.2: Métodos y Variables Estáticas}
+\section*{Ejercicio 6.1. Triángulos}
 
 \begin{itemize}
-	\item Crea las clases Inventario y Producto para que la clase Test funcione tal como se
-muestra y para que su salida sea igual a la que se observa.
-	\item La clase Inventario debe otorgarle un id consecutivo a cada instancia de la clase
-Producto al momento que estas sean creadas, esto por medio de un método.
-	\item La clase Producto no debe crear instancias de la clase Inventario.
+
+\item Construye las clases {\tt Triangulo}, {\tt Equilatero}, {\tt Isosceles} y 
+{\tt Escaleno} de tal manera que podamos construir cada tipo de triangulo como se
+muestra en la clase {\tt Test}.
+
+Hints
+
+\item {\tt Triangulo} es super clase y contiene los métodos necesarios para construir cualquier tipo de triángulo (de los mencionados).
+\item Todos los triángulos tienen 3 lados, esto es una generalidad.
+\item Usa el constructor adecuado en cada clase derivada para construir el objeto.
 \end{itemize}
 
 
 \begin{minted}[bgcolor = LightGray]{java}
-public class Producto{
+import java.lang.Math;
 
-// La clase Producto sólo tendrá un método público( definido así
-// para que se pudiera llamar desde la clase Test), el cual regresa 
-// una llamada al método estático, .ortorgarID() de la clase 
-// Inventario (ID).
+public class Triangulo{
+    // Definimos tres variables de tipo float protegidas para que solo
+    // las clases que hereden de triangulo puedan acceder a ellas
+    protected float lado1, lado2, lado3; 
 
-	public Integer getId(){
-		return Inventario.otorgarId(); 
-	}
+    // Se definen los tres constructores de acuerdo a las firmas que van
+    // a necesitar las subclases
+    public Triangulo(float lado1,float lado2,float lado3){
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.lado3 = lado3;
+    }
+    //  definimos que cada uno de los lados va a estar dado por 
+    // el paramatro que se define como el mismo lado para 
+    // construir el triangulo equilatero
+    public Triangulo(float lado1){
+        this.lado1 = lado1;
+        this.lado2 = lado1;
+        this.lado3 = lado1;
+    }
+
+    public Triangulo(float lado1,float lado2){
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.lado3 = lado2;
+    }
+    // método que regresa el area del traingulo usando la función 
+    // de heron
+    protected double calcularArea(){
+        // formula de heron
+    float s = (lado1+lado2+lado3)/2;
+    double area = Math.sqrt(s*(s-lado1)*(s-lado2)*(s-lado3));
+    return area;
+    }
+    // metodo que regresa el perimetro del triangulo 
+    protected float calcularPerimetro(){
+        return lado1 + lado2 + lado3;
+    }
+    // metodo que no regresa nada, sin embargo manda 
+    // imprimir en consola la dimension de cada uno 
+    // de los lados
+    protected void imprimirLados(){
+        System.out.printf("[%.2f, %.2f, %.2f]",lado1,lado2,lado3);
+    }
 }
 \end{minted}
 
 \begin{minted}[bgcolor = LightGray]{java}
-public class Inventario{
-	
-// Se crea una variable de tipo entero la cual se inicializa en 
-// 100 (dado el ejercicio) siendo static para poderla mandar 
-// llamar dentro del método estático otorgarID, el cual va 
-// aumentando una unidad la variable ID a medida que se van 
-//creando más objetos.
-
-	public static Integer id = 100;
-	public static Integer otorgarId(){
-		return id++;
-	}
+// Clase Equilatero que extiende de Triangulo
+public class Equilatero extends Triangulo{
+    // Constructor que recibe un solo parametro y 
+    // manda llamar el constructor de super
+    public Equilatero(float lado1){
+        super(lado1);
+    }
 }
 \end{minted}
 
-\section*{Ejercicio 5.3: Pregunta}
+\begin{minted}[bgcolor = LightGray]{java}
+public class Escaleno extends Triangulo{
 
-\noindent ¿Qué modificador permite que múltiples variables de una misma instancia sean compartidas a través de todos los objetos de una clase? Explica brevemente un poco sobre este.
+    public Escaleno(float lado1,float lado2,float lado3){
+        super(lado1, lado2, lado3);
+    }
+}
+\end{minted}
 
-El modificador {\tt static}, debido que al definir variables o métodos bajo este modificador estos se vuelvan independiente de los objetos de la clase, es decir que no es necesario instanciar a una clase para poder hacer uso de ellos.
+\begin{minted}[bgcolor = LightGray]{java}
+public class Isosceles extends Triangulo{
+
+    public Isosceles(float lado1,float lado2){
+        super(lado1,lado2);
+    }
+}
+\end{minted}
+
+\section*{Ejercicio 6.2. Matriz}
+
+\begin{minted}[bgcolor = LightGray]{java}
+public class Matriz{
+    // Definimos la variable n para usarla en el constructor
+    protected int n;
+    // definimos a matrix como un arreglo 2D
+    protected int[][] matrix;
+    // la variable k va a funcionar para darle el valor 
+    // a las entradas de la matriz, se inicializa en 0
+    protected int k = 0;
+
+    // Método constructor el cual solo reciben como entrada
+    public Matriz(int n){
+        this.n = n;
+        matrix = new int[n][n];
+
+        // recorremos por i y j dándole el valor de k y 
+        // aumentando este valor una unidad cada iteración
+        for(int i = 0; i < n ; i++) {
+            for(int j = 0; j < n; j++){
+                matrix[i][j] = k;
+                k++;
+            }
+        }
+    }
+    // método que no regresa nada pero manda a imprimir en consola
+    // el valor de la matriz
+    public void imprimirMatriz(){
+
+        for(int i = 0; i < n ; i++) {
+            for(int j = 0; j < n; j++){
+            System.out.print(matrix[i][j]+ "\t");           
+            }
+            System.out.println();   
+        }
+    }
+}
+\end{minted}
+
+\begin{minted}[bgcolor = LightGray]{java}
+// Para poder pedir al usuario que introduzca un input
+import java.util.Scanner; 
+
+public class TestMatriz{
+    public static void main(String[] args){
+
+        // Creamos un Scanner para pedirle al usuario el
+        // valor de n para introducirlo como parámetro
+        // al momento de llamar al método constructor
+        Scanner input = new Scanner(System.in);
+        System.out.println("Introduce el valor de N:");
+        Integer n = input.nextInt();
+
+        Matriz mat = new Matriz(n);
+        System.out.println("\nEsta es la matriz resultante: \n");
+        // Se manda llamar al método imprimirMatriz de la
+        // clase Matriz
+        mat.imprimirMatriz();
+    }
+
+}
+\end{minted}
+
+\begin{minted}[bgcolor = LightGray]{java}
+// Esta clase hereda de Matriz, de modo que el método
+// constructor manda llamar al método super
+public class MatrizExtendida extends Matriz{
+
+    public MatrizExtendida(int n){
+        super(n);
+    }
+    // método que cambia el valor de las entradas i,j
+    // como el indexado de la matriz comienza en 0, entonces
+    // se toma en cuenta que si se quiere cambiar la entrada
+    // (1,1) entonces esta se refiere a la entrada (0,0), po
+    // lo que se le resta una unidad a cada entrada i, j.
+    public void sustituirElemento(int i, int j, int valor){
+        matrix[i-1][j-1] = valor;
+    }
+
+}
+\end{minted}
+
+\begin{minted}[bgcolor = LightGray]{java}
+import java.util.Scanner; 
+
+public class TestMatrizExtendida{
+
+        public static void main(String[] args){
+
+        // Se crea un objeto Scanner y se pide al usuario
+        // introducir el valor de n, i,j y value(valor por
+        // el que se quiere cambiar la entrada i,j)
+        Scanner input = new Scanner(System.in);
+        System.out.println("Introduce el valor de N:");
+        Integer n = input.nextInt();
+
+        System.out.println("Introduce el valor de i:");
+        Integer i = input.nextInt();
+
+        System.out.println("Introduce el valor de j:");
+        Integer j = input.nextInt();
+
+        System.out.println("Introduce el nuevo valor para [i][j]:");
+        Integer value = input.nextInt();
+        
+        //Una vez teniendo los inputs anteriores creamos la matriz
+        // y mandamos llamar al método  .sustituirElemento(i,j,value)
+        MatrizExtendida mat = new MatrizExtendida(n);
+        mat.sustituirElemento(i,j,value);
+
+        // Se imprimir la matriz con el cambio de entrada (i,j)
+        System.out.println("\nEsta es la matriz con el cambio:  \n");
+        mat.imprimirMatriz();
+    }
+}
+\end{minted}
 
 \end{document}  

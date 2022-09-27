@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// Clase Equilatero que extiende de Triangulo}
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Equilatero}\PYG{+w}{ }\PYG{k+kd}{extends}\PYG{+w}{ }\PYG{n}{Triangulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Constructor que recibe un solo parametro y}
+\PYG{+w}{    }\PYG{c+c1}{// manda llamar el constructor de super}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Equilatero}\PYG{p}{(}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k+kd}{super}\PYG{p}{(}\PYG{n}{lado1}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

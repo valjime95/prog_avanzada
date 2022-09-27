@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{java.lang.Math}\PYG{p}{;}
+
+\PYG{k+kd}{public}\PYG{+w}{ }\PYG{k+kd}{class} \PYG{n+nc}{Triangulo}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// Definimos tres variables de tipo float protegidas para que solo}
+\PYG{+w}{    }\PYG{c+c1}{// las clases que hereden de triangulo puedan acceder a ellas}
+\PYG{+w}{    }\PYG{k+kd}{protected}\PYG{+w}{ }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{lado3}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{// Se definen los tres constructores de acuerdo a las firmas que van}
+\PYG{+w}{    }\PYG{c+c1}{// a necesitar las subclases}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Triangulo}\PYG{p}{(}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{,}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{,}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado3}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado3}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{//  definimos que cada uno de los lados va a estar dado por}
+\PYG{+w}{    }\PYG{c+c1}{// el paramatro que se define como el mismo lado para}
+\PYG{+w}{    }\PYG{c+c1}{// construir el triangulo equilatero}
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Triangulo}\PYG{p}{(}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{k+kd}{public}\PYG{+w}{ }\PYG{n+nf}{Triangulo}\PYG{p}{(}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{,}\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{)\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{this}\PYG{p}{.}\PYG{n+na}{lado3}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lado2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// método que regresa el area del traingulo usando la función}
+\PYG{+w}{    }\PYG{c+c1}{// de heron}
+\PYG{+w}{    }\PYG{k+kd}{protected}\PYG{+w}{ }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n+nf}{calcularArea}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{// formula de heron}
+\PYG{+w}{    }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n}{s}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{lado1}\PYG{o}{+}\PYG{n}{lado2}\PYG{o}{+}\PYG{n}{lado3}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{area}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{Math}\PYG{p}{.}\PYG{n+na}{sqrt}\PYG{p}{(}\PYG{n}{s}\PYG{o}{*}\PYG{p}{(}\PYG{n}{s}\PYG{o}{\PYGZhy{}}\PYG{n}{lado1}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{s}\PYG{o}{\PYGZhy{}}\PYG{n}{lado2}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{s}\PYG{o}{\PYGZhy{}}\PYG{n}{lado3}\PYG{p}{));}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{area}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// metodo que regresa el perimetro del triangulo}
+\PYG{+w}{    }\PYG{k+kd}{protected}\PYG{+w}{ }\PYG{k+kt}{float}\PYG{+w}{ }\PYG{n+nf}{calcularPerimetro}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{lado1}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{lado2}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{lado3}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{c+c1}{// metodo que no regresa nada, sin embargo manda}
+\PYG{+w}{    }\PYG{c+c1}{// imprimir en consola la dimension de cada uno}
+\PYG{+w}{    }\PYG{c+c1}{// de los lados}
+\PYG{+w}{    }\PYG{k+kd}{protected}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{imprimirLados}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{System}\PYG{p}{.}\PYG{n+na}{out}\PYG{p}{.}\PYG{n+na}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}[\PYGZpc{}.2f, \PYGZpc{}.2f, \PYGZpc{}.2f]\PYGZdq{}}\PYG{p}{,}\PYG{n}{lado1}\PYG{p}{,}\PYG{n}{lado2}\PYG{p}{,}\PYG{n}{lado3}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
